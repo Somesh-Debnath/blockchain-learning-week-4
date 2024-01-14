@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.23;
 
-contract OnlyAminCheck {
+contract OnlyAdminCheck {
     //function to check if the user is administrator or not.
     function isAdmin(address administrator) external view returns (bool) {
         //can't use msg.sender because msg.sender is the one who called this function. But we need the address where it was called first.

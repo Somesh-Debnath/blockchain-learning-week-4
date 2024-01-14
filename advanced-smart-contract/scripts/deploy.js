@@ -8,13 +8,13 @@ const hre = require("hardhat");
 
 async function main() {
 
-  const onlyAdministratorChecker = await hre.ethers.deployContract("OnlyAdministratorChecker", [], {});
-  await onlyAdministratorChecker.waitForDeployment();
+  const onlyAdminCheck = await hre.ethers.deployContract("OnlyAdminCheck", [], {});
+  await onlyAdminCheck.waitForDeployment();
 
   console.log(
-    `OnlyAdministratorChecker Contract Deployed as ${onlyAdministratorChecker.target}.`);
+    `OnlyAdminCheck Contract Deployed as ${onlyAdminCheck.target}.`);
 
-  const productSupplyChain = await hre.ethers.deployContract("ProductSupplyChain", [onlyAdministratorChecker.target], {});
+  const productSupplyChain = await hre.ethers.deployContract("ProductSupplyChain", [onlyAdminCheck.target], {});
 
   await productSupplyChain.waitForDeployment();
 
